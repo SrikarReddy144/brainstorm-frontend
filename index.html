@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Brainstorm Universe</title>
+<link rel="stylesheet" href="styles.css"/>
+<script defer src="common.js"></script>
+</head><body>
+<header class="nav"><div class="wrap">
+  <div class="brand">💡 Brainstorm Universe</div>
+  <nav class="links">
+    <a href="index.html">Home</a>
+    <a href="blogs.html">Blog</a>
+    <a href="menu.html">Brainstorm Games</a>
+    <a href="games.html">Games</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Sharpen your mind, daily.</h1>
+    <p class="small">A short read + quick puzzles. Clean, fast, and fun.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <input id="name" class="input" placeholder="Your name"/>
+      <button class="btn" id="start">Start Today's Brainstorm</button>
+    </div>
+    <div class="banner ad">Banner Ad</div>
+  </section>
+
+  <section class="grid">
+    <div class="card"><h3>Daily Blog</h3><p class="small">One curated article each day with a quick quiz.</p><a class="btn" href="blogs.html">Open</a></div>
+    <div class="card"><h3>Puzzles</h3><p class="small">Word Jumble & Mini Sudoku.</p><a class="btn" href="menu.html">Open</a></div>
+    <div class="card"><h3>Special</h3><p class="small">Sponsored section.</p><a class="btn" href="secret.html">Open</a></div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <span>© <span id="yr"></span> Brainstorm Universe</span><a href="privacy.html">Privacy</a>
+</div></footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear()
+document.getElementById('start').onclick = ()=>{
+  const n = document.getElementById('name').value.trim()
+  if(!n){ alert('Please enter your name'); return }
+  setName(n)
+  location.href='blogs.html'
+}
+</script>
+</body></html>

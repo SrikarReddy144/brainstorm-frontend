@@ -1,0 +1,22 @@
+<!doctype html><html><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Word Jumble</title>
+<link rel="stylesheet" href="styles.css"/><script defer src="common.js"></script>
+</head><body>
+<header class="nav"><div class="wrap"><div class="brand">💡 Brainstorm Universe</div>
+<nav class="links"><a href="index.html">Home</a><a href="privacy.html">Privacy</a></nav></div></header>
+<main class="container"><section class="section">
+  <h2>Word Jumble</h2>
+  <p class="small">Unscramble: <span class="badge">RDAOT</span></p>
+  <input id="ans" class="input" placeholder="type answer"/><div class="block-ad ad">Ad</div>
+  <button class="btn" id="go">Submit</button><p id="msg" class="small"></p>
+</section></main>
+<script>
+document.getElementById('go').onclick = async ()=>{
+  const name = getName(); if(!name){ alert('Please set your name on Home.'); return }
+  // (Demo) accept any non-empty answer
+  if(!document.getElementById('ans').value.trim()){ document.getElementById('msg').textContent='Try an answer.'; return }
+  try{ await jfetch('/api/complete-task',{name,task:'jumble'}) }catch(e){}
+  location.href='sudoku.html'
+}
+</script></body></html>

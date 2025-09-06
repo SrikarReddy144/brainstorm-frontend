@@ -1,0 +1,46 @@
+<!doctype html><html><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Daily Blog</title>
+<link rel="stylesheet" href="styles.css"/>
+<script defer src="common.js"></script>
+</head><body>
+<header class="nav"><div class="wrap">
+  <div class="brand">💡 Brainstorm Universe</div>
+  <nav class="links">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Brainstorm Games</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</div></header>
+<main class="container">
+  <section class="section">
+    <h2 id="title">Loading…</h2>
+    <p class="small" id="date"></p>
+    <div class="block-ad ad">In-Article Ad</div>
+    <article id="content" class="article"></article>
+    <div class="block-ad ad">In-Article Ad</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+      <button class="btn" id="markRead">Next: Quiz</button>
+    </div>
+    <p class="small">One reading credit per day.</p>
+  </section>
+</main>
+<script>
+const idx = (function(){ const a=new Date('2025-01-01'); const d=new Date(); const k=Math.floor((d-a)/(24*3600*1000)) % 30; return k; })();
+document.getElementById('date').textContent = new Date().toDateString();
+
+fetch('blogs/blog-'+idx+'.json').then(r=>r.json()).then(data=>{
+  document.getElementById('title').textContent = data.title;
+  document.getElementById('content').innerHTML = data.html;
+});
+
+document.getElementById('markRead').onclick = async ()=>{
+  const name = getName(); if(!name){ alert('Please set your name on Home.'); return }
+  if(!blogMarkedToday()){
+    try{ await jfetch('/api/complete-task',{name,task:'blog'}) }catch(e){}
+    markBlogToday()
+  }
+  location.href = 'quiz.html?i='+idx
+}
+</script>
+</body></html>
