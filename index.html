@@ -1,17 +1,31 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Brainstorm Universe</title>
-<link rel="stylesheet" href="styles.css"/>
-<script defer src="common.js"></script>
-<script>
-  const toggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Brainstorm Universe</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script defer src="common.js"></script>
+</head>
+<body>
 
-  toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-</script>
-</head><body>
+<!-- Navbar -->
+<header>
+  <nav class="navbar">
+    <div class="logo">Brainstorm Universe</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blogs.html">Blog</a></li>
+      <li><a href="menu.html">Brainstorm Games</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="about.html">About the Dev</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+  </nav>
+</header>
+
 <main class="container">
   <section class="hero">
     <h1>Sharpen your mind, daily.</h1>
@@ -24,23 +38,48 @@
   </section>
 
   <section class="grid">
-    <div class="card"><h3>Daily Blog</h3><p class="small">One curated article each day with a quick quiz.</p><a class="btn" href="blogs.html">Open</a></div>
-    <div class="card"><h3>Puzzles</h3><p class="small">Word Jumble & Mini Sudoku.</p><a class="btn" href="menu.html">Open</a></div>
-    <div class="card"><h3>Special</h3><p class="small">Sponsored section.</p><a class="btn" href="secret.html">Open</a></div>
+    <div class="card">
+      <h3>Daily Blog</h3>
+      <p class="small">One curated article each day with a quick quiz.</p>
+      <a class="btn" href="blogs.html">Open</a>
+    </div>
+    <div class="card">
+      <h3>Puzzles</h3>
+      <p class="small">Word Jumble & Mini Sudoku.</p>
+      <a class="btn" href="menu.html">Open</a>
+    </div>
+    <div class="card">
+      <h3>Special</h3>
+      <p class="small">Sponsored section.</p>
+      <a class="btn" href="secret.html">Open</a>
+    </div>
   </section>
 </main>
 
-<footer class="foot"><div class="wrap">
-  <span>© <span id="yr"></span> Brainstorm Universe</span><a href="privacy.html">Privacy</a>
-</div></footer>
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="yr"></span> Brainstorm Universe</span>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</footer>
 
 <script>
-document.getElementById('yr').textContent = new Date().getFullYear()
-document.getElementById('start').onclick = ()=>{
-  const n = document.getElementById('name').value.trim()
-  if(!n){ alert('Please enter your name'); return }
-  setName(n)
-  location.href='blogs.html'
-}
+  // Navbar toggle
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  toggle.addEventListener("click", () => navLinks.classList.toggle("active"));
+
+  // Footer year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Start button
+  document.getElementById('start').onclick = ()=>{
+    const n = document.getElementById('name').value.trim();
+    if(!n){ alert('Please enter your name'); return }
+    setName(n);
+    location.href='blogs.html';
+  }
 </script>
-</body></html>
+
+</body>
+</html>
