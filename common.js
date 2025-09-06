@@ -1,5 +1,5 @@
 // ===== CONFIG =====
-let BACKEND_URL = ""; // <- set to your Render URL (no trailing slash), e.g. "https://your-backend.onrender.com"
+let BACKEND_URL = "https://brainstorm-backend-cayj.onrender.com"; // <- set to your Render URL (no trailing slash), e.g. "https://your-backend.onrender.com"
 
 // ===== UTIL =====
 function $(sel){return document.querySelector(sel)}
